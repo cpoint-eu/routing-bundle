@@ -11,9 +11,9 @@
 
 namespace Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\ODM\PHPCR\DocumentManager;
+use Doctrine\Persistence\ManagerRegistry;
 use PHPCR\RepositoryException;
 use PHPCR\Util\UUIDHelper;
 use Psr\Log\LoggerInterface;
@@ -58,8 +58,6 @@ class RouteProvider extends DoctrineProvider implements RouteProviderInterface
     }
 
     /**
-     * @param Request $request
-     *
      * @return array a list of PHPCR-ODM ids
      */
     public function getCandidates(Request $request)
@@ -88,7 +86,7 @@ class RouteProvider extends DoctrineProvider implements RouteProviderInterface
 
         $collection = new RouteCollection();
 
-        if (0 === count($candidates)) {
+        if (0 === \count($candidates)) {
             return $collection;
         }
 

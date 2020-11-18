@@ -22,7 +22,7 @@ class RouteTypeTypeTest extends TestCase
      */
     private $type;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->type = new RouteTypeType();
     }
@@ -36,7 +36,7 @@ class RouteTypeTypeTest extends TestCase
 
         $options = $optionsResolver->resolve();
 
-        $this->assertInternalType('array', $options['choices']);
+        $this->assertIsArray($options['choices']);
     }
 
     public function testDefaultsSet()

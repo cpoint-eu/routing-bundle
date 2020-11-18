@@ -13,11 +13,11 @@ namespace Symfony\Cmf\Bundle\RoutingBundle;
 
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Doctrine\Bundle\PHPCRBundle\DependencyInjection\Compiler\DoctrinePhpcrMappingsPass;
-use Doctrine\Common\Persistence\Mapping\Driver\DefaultFileLocator;
 use Doctrine\ODM\PHPCR\Mapping\Driver\XmlDriver as PHPCRXmlDriver;
 use Doctrine\ODM\PHPCR\Version as PHPCRVersion;
 use Doctrine\ORM\Mapping\Driver\XmlDriver as ORMXmlDriver;
 use Doctrine\ORM\Version as ORMVersion;
+use Doctrine\Persistence\Mapping\Driver\DefaultFileLocator;
 use Symfony\Cmf\Bundle\RoutingBundle\DependencyInjection\Compiler\SetRouterPass;
 use Symfony\Cmf\Bundle\RoutingBundle\DependencyInjection\Compiler\TemplatingValidatorPass;
 use Symfony\Cmf\Bundle\RoutingBundle\DependencyInjection\Compiler\ValidationPass;
@@ -33,9 +33,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class CmfRoutingBundle extends Bundle
 {
-    /**
-     * @param ContainerBuilder $container
-     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
@@ -52,8 +49,6 @@ class CmfRoutingBundle extends Bundle
     /**
      * Creates and registers compiler passes for PHPCR-ODM mapping if both the
      * phpcr-odm and the phpcr-bundle are present.
-     *
-     * @param ContainerBuilder $container
      */
     private function buildPhpcrCompilerPass(ContainerBuilder $container)
     {
@@ -80,8 +75,6 @@ class CmfRoutingBundle extends Bundle
     /**
      * Creates and registers compiler passes for ORM mappings if both doctrine
      * ORM and a suitable compiler pass implementation are available.
-     *
-     * @param ContainerBuilder $container
      */
     private function buildOrmCompilerPass(ContainerBuilder $container)
     {

@@ -11,9 +11,9 @@
 
 namespace Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Orm;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\DBAL\Exception\TableNotFoundException;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectRepository;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\DoctrineProvider;
 use Symfony\Cmf\Component\Routing\Candidates\CandidatesInterface;
 use Symfony\Cmf\Component\Routing\RouteProviderInterface;
@@ -51,7 +51,7 @@ class RouteProvider extends DoctrineProvider implements RouteProviderInterface
         $collection = new RouteCollection();
 
         $candidates = $this->candidatesStrategy->getCandidates($request);
-        if (0 === count($candidates)) {
+        if (0 === \count($candidates)) {
             return $collection;
         }
         $routes = $this->getRouteRepository()->findByStaticPrefix($candidates, ['position' => 'ASC']);

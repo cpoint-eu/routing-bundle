@@ -11,8 +11,8 @@
 
 namespace Symfony\Cmf\Bundle\RoutingBundle\Doctrine;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Abstract class for doctrine based content repository and route provider
@@ -51,8 +51,7 @@ abstract class DoctrineProvider
     protected $routeCollectionLimit;
 
     /**
-     * @param ManagerRegistry $managerRegistry
-     * @param string          $className
+     * @param string $className
      */
     public function __construct(ManagerRegistry $managerRegistry, $className = null)
     {
